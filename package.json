@@ -2,8 +2,13 @@
   "name": "@isyfact/eslint-plugin",
   "version": "1.1.0",
   "description": "eslint typescript rules for the IsyFact software factory",
-  "authors": "ISY-Fact",
+  "author": {
+    "name": "IsyFact-Team",
+    "email": "isyfact@bva.bund.de",
+    "url": "https://www.bva.bund.de"
+  },
   "license": "Apache-2.0",
+  "homepage": "http://isyfact.de",
   "main": "index.js",
   "scripts": {
     "pack": "npm pack"
