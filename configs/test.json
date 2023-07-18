@@ -1,5 +1,4 @@
 {
-  "extends": "./configs/recommended.json",
   "rules": {
     "@typescript-eslint/brace-style": [
       "error"
