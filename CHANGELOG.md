@@ -1,3 +1,8 @@
+# 1.2.0
+
+## Features
+- Bereitstellung eines zusätzlichen Regelsatzes mit weniger scharfen Regeln für Testfälle
+
 # 1.1.0 - 15.02.2022
 
 ## Features
