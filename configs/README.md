@@ -50,6 +50,24 @@ empfohlenen ESLint TypeScript Regeln hinzugefügt.
    ]
 ```
 
+Des Weiteren wurde ein zweites Profil mit ESLint Regeln angelegt, das für Unit-Tests genutzt werden kann.
+Die Datei `test.json` beinhaltet das zweite Profil.
+Dieses Regel-Set ist flexibler und nicht so streng wie die Regeln für den Produktivcode.
+Für die Anbindung wird folgender Code innerhalb der `.eslintrc.json` Datei benötigt:
+
+```
+   {
+    "files": [
+      "*.spec.ts"
+    ],
+    "extends": [
+      "plugin:@isyfact/test"
+    ]
+   }
+```
+
+Somit wird das ESLint Regel-Set auf `.spec` Dateien angewandt.
+
 ### Verwendung der Rules in Angular Projekten
 
 Für Angular Projekte, insbesondere für Monorepos, gibt es ein Schematics, welches die Installation und Konfiguration erleichtert.
