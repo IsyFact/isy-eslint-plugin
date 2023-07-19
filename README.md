@@ -29,6 +29,24 @@ Als minimale Konfiguration der `.eslintrc.json` kann folgendes Beispiel verwende
 
 ```
 
+Des Weiteren wurde ein zweites Profil mit ESLint Regeln angelegt, das für Unit-Tests genutzt werden kann.
+Die Datei `test.json` beinhaltet das zweite Profil.
+Dieses Regel-Set ist flexibler und nicht so streng wie die Regeln für den Produktivcode.
+Für die Anbindung wird folgender Code innerhalb der `.eslintrc.json` Datei benötigt:
+
+```json
+   {
+    "files": [
+      "*.spec.ts"
+    ],
+    "extends": [
+      "plugin:@isyfact/test"
+    ]
+   }
+```
+
+Somit wird das ESLint Regel-Set auf `.spec` Dateien angewandt.
+
 ### Verwendung in Angular Projekten
 
 Angular hat einen [Generator](https://github.com/angular-eslint/angular-eslint), welcher die Konfiguration von EsLint in Angular Projekten erleichtert.
@@ -47,7 +65,7 @@ $ npm i --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-pl
 Die `.eslintrc.json` muss dann noch um das IsyFact Plugin erweitert werden.
 Ggf. muss noch `@typescript-eslint/parser` als Parser eingestellt werden.
 
-```
+```json
 {
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
