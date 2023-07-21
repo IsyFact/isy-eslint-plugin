@@ -49,24 +49,6 @@ Als minimale Konfiguration der `.eslintrc.json` kann folgendes Beispiel verwende
 
 ```
 
-Des Weiteren wurde ein zweites Profil mit ESLint Regeln angelegt, das für Unit-Tests genutzt werden kann.
-Die Datei `test.json` beinhaltet das zweite Profil.
-Dieses Regel-Set ist flexibler und nicht so streng wie die Regeln für den Produktivcode.
-Für die Anbindung wird folgender Code innerhalb der `.eslintrc.json` Datei benötigt:
-
-```json
-   {
-    "files": [
-      "*.spec.ts"
-    ],
-    "extends": [
-      "plugin:@isyfact/test"
-    ]
-   }
-```
-
-Somit wird das ESLint Regel-Set auf `.spec` Dateien angewandt.
-
 ### Verwendung in Angular Projekten
 
 Angular hat einen [Generator](https://github.com/angular-eslint/angular-eslint), welcher die Konfiguration von EsLint in Angular Projekten erleichtert.
@@ -75,6 +57,8 @@ Der Generator wir mit folgendem Befehl ausgeführt:
 ```
 $ ng add @angular-eslint/schematics
 ```
+
+Wenn eine bestimmte Angular-Hauptversion verwendet wird, sollte die schematics passend zur Angular-Version installiert werden.
 
 Anschließend müssen noch folgende Pakete installiert werden.
 
@@ -97,6 +81,24 @@ Ggf. muss noch `@typescript-eslint/parser` als Parser eingestellt werden.
   ]
 }
 ```
+
+Des Weiteren wurde ein zweites Profil mit ESLint Regeln angelegt, das für Unit-Tests genutzt werden kann.
+Die Datei `test.json` beinhaltet das zweite Profil.
+Dieses Regel-Set ist flexibler und nicht so streng wie die Regeln für den Produktivcode.
+Für die Anbindung wird folgender Code innerhalb der `.eslintrc.json` Datei benötigt:
+
+```json
+   {
+    "files": [
+      "*.spec.ts"
+    ],
+    "extends": [
+      "plugin:@isyfact/test"
+    ]
+   }
+```
+
+Somit wird das ESLint Regel-Set auf `.spec` Dateien angewandt.
 
 ### Weiterführende Anleitungen zur Installation:
 
