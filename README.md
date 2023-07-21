@@ -2,6 +2,24 @@
 
 Das Paket *@isyfact/eslint-plugin* enthält eine Liste von empfohlenen Regeln, die bei der Entwicklung von TypeScript Projekten in der IsyFact zu beachten sind.
 
+## Steckbrief
+
+[*ESLint*](https://eslint.org/) definiert Regeln zur statischen Codeanalyse für JavaScript, und führt eine Prüfung des Quellcodes
+gegenüber den Regeln aus. Für TypeScript existiert eine ESLint Erweiterung mit angepassten und zusätzlichen Regeln, die sich auf
+TypeScript basierten Quellcode beziehen ([*typescript-eslint*](https://github.com/typescript-eslint/typescript-eslint#readme)).
+
+Die Entwickler der ESLint TypeScript Erweiterung sprechen eine Empfehlung aus, welche Regeln aus allen verfügbaren Regeln
+den höchsten Nutzen bringen, und verwendet werden sollten (*Recommended Config*). Das empfohlene Regelset bietet eine
+gute Zusammenstellung von Regeln und kann uneingeschränkt verwendet werden. Dabei sollte die stärkere Variante mit
+Typprüfung gewählt werden.
+
+Das vollständige Regelset aus ESLint TypeScript beinhaltet noch weitere Regeln, die verwendet werden
+können. In *isy-eslint-typescript-rules* ist eine Auswahl von nützlichen Regeln aus dem vollständigen Regelset
+zusammengefasst, die über das empfohlene Regelset hinausgehen. Die Regeln werden
+als [*Sharable Config*](https://eslint.org/docs/developer-guide/shareable-configs) bereitgestellt.
+
+*isy-eslint-typescript-rules* versteht sich als Erweiterung zu den empfohlenen TypeScript Regeln aus ESLint.
+
 ## Getting Started 
 
 ### Verwendung in TypeScript Projekten ohne Angular
@@ -9,7 +27,7 @@ Das Paket *@isyfact/eslint-plugin* enthält eine Liste von empfohlenen Regeln, d
 Für die Verwendung des Plugins müssen zunächst folgende Dependencies installiert werden
 
 ```
-$ npm i --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @isyfact/isy-eslint-typescript-rules
+$ npm i --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @isyfact/eslint-plugin
 ```
 
 Als minimale Konfiguration der `.eslintrc.json` kann folgendes Beispiel verwendet werden.
@@ -23,6 +41,8 @@ Als minimale Konfiguration der `.eslintrc.json` kann folgendes Beispiel verwende
     "node": true
   },
   "extends": [
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:@isyfact/recommended"
   ]
 }
@@ -38,16 +58,18 @@ Der Generator wir mit folgendem Befehl ausgeführt:
 $ ng add @angular-eslint/schematics
 ```
 
+Wenn eine bestimmte Angular-Hauptversion verwendet wird, sollte die schematics passend zur Angular-Version installiert werden.
+
 Anschließend müssen noch folgende Pakete installiert werden.
 
 ```
-$ npm i --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @isyfact/isy-eslint-typescript-rules
+$ npm i --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @isyfact/eslint-plugin
 ```
 
 Die `.eslintrc.json` muss dann noch um das IsyFact Plugin erweitert werden.
 Ggf. muss noch `@typescript-eslint/parser` als Parser eingestellt werden.
 
-```
+```json
 {
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint"],
@@ -60,9 +82,39 @@ Ggf. muss noch `@typescript-eslint/parser` als Parser eingestellt werden.
 }
 ```
 
+Des Weiteren wurde ein zweites Profil mit ESLint Regeln angelegt, das für Unit-Tests genutzt werden kann.
+Die Datei `test.json` beinhaltet das zweite Profil.
+Dieses Regel-Set ist flexibler und nicht so streng wie die Regeln für den Produktivcode.
+Für die Anbindung wird folgender Code innerhalb der `.eslintrc.json` Datei benötigt:
+
+```json
+   {
+    "files": [
+      "*.spec.ts"
+    ],
+    "extends": [
+      "plugin:@isyfact/test"
+    ]
+   }
+```
+
+Somit wird das ESLint Regel-Set auf `.spec` Dateien angewandt.
+
+### Weiterführende Anleitungen zur Installation:
+
+Installation von ESLint TypeScript:
+https://www.npmjs.com/package/@typescript-eslint/eslint-plugin
+
+Getting Started mit ESLint TypeScript:
+https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/README.md
+
+Angular spezifische Regeln für ESLint:
+https://github.com/angular-eslint/angular-eslint
+
 ## Konfiguration des @isyfact/eslint-plugin
 
 Die IsyFact verwendet als Basis die Regeln von [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) und leitet dann unterschiedliche Konfigurationen daraus ab.  
+
 
 ### recommended
 
