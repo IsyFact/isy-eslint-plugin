@@ -1,3 +1,9 @@
+# 1.3.0
+
+## Features
+- ISY-138: Upgrade Angular und PrimeNG Bibliothek auf Version 15
+    * ECMAScript Version von 2020 auf 2022 angehoben
+
 # 1.2.0
 
 ## Features
