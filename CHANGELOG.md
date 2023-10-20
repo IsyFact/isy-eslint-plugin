@@ -1,3 +1,8 @@
+# 1.3.0
+
+## Features
+- Hinzufügen von Leerzeichen vor den Klammern einer Methode ist nun möglich
+
 # 1.2.0
 
 ## Features
