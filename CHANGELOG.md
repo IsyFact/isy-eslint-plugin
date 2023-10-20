@@ -1,7 +1,7 @@
 # 1.3.0
 
 ## Features
-- Hinzufügen von Leerzeichen vor den Klammern einer Methode ist nun möglich
+- Hinzufügen von Leerzeichen vor den Klammern einer Methode ist nun möglich, da sonst Konflikt mit Prettier Code-Formatierungsregeln
 
 # 1.2.0
 
