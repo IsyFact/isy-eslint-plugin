@@ -1,7 +1,7 @@
 # 1.3.0
 
 ## Features
-- Hinzufügen von Leerzeichen vor den Klammern einer Methode ist nun möglich, da sonst Konflikt mit Prettier Code-Formatierungsregeln
+- Hinzufügen von Leerzeichen vor den Klammern einer Methode ist nun möglich, da sonst die Regel `space-before-function-paren` einen Konflikt mit Prettier Code-Formatierungsregeln aufweist
 
 # 1.2.0
 
