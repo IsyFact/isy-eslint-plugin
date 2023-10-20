@@ -1,3 +1,8 @@
+# 1.3.0 - 20.10.2023
+
+## Features
+- Hinzufügen von Leerzeichen vor den Klammern einer Methode ist nun möglich, da sonst die Regel `@typescript-eslint/space-before-function-paren` einen Konflikt mit Prettier Code-Formatierungsregeln aufweist
+
 # 1.2.0
 
 ## Features
