@@ -120,10 +120,6 @@
       "error",
       "always"
     ],
-    "@typescript-eslint/space-before-function-paren": [
-      "error",
-      "never"
-    ],
     "brace-style": "off",
     "comma-dangle": "off",
     "comma-spacing": "off",
