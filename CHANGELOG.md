@@ -1,8 +1,8 @@
-# 1.4.0 - 25.10.2023
+# 1.4.0 - 07.11.2023
 
 ## Features
-- ISY-138: Upgrade Angular und PrimeNG Bibliothek auf Version 15
-    * ECMAScript Version von 2020 auf 2022 angehoben
+- Die ECMAScript Version wurde von 2020 auf 2022 angehoben
+- Die Regel `@typescript-eslint/unbound-method` verwendet jetzt standardmäßig die Option `ignoreStatic=true` um Angular Validatoren ohne Regelverletzung verwenden zu können 
 
 # 1.3.0 - 20.10.2023
 
