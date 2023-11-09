@@ -1,6 +1,6 @@
 {
   "name": "@isyfact/eslint-plugin",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "eslint typescript rules for the IsyFact software factory",
   "author": {
     "name": "IsyFact-Team",

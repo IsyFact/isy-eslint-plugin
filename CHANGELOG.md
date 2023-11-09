@@ -1,3 +1,8 @@
+# 1.4.1 - 09.11.2023
+
+## Fixes
+- Die Regel `@typescript-eslint/unbound-method` ist für das Testprofil jetzt wieder deaktiviert
+
 # 1.4.0 - 07.11.2023
 
 ## Features
