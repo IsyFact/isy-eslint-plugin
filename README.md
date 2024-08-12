@@ -4,24 +4,23 @@ Das Paket _@isyfact/eslint-plugin_ enthält eine Liste von empfohlenen Regeln, d
 
 ## Steckbrief
 
-[_ESLint_](https://eslint.org/) definiert Regeln zur statischen Codeanalyse für JavaScript, und führt eine Prüfung des Quellcodes
-gegenüber den Regeln aus. Für TypeScript existiert eine ESLint-Erweiterung mit angepassten und zusätzlichen Regeln, die sich auf
-TypeScript basierten Quellcode beziehen ([_typescript-eslint_](https://github.com/typescript-eslint/typescript-eslint#readme)).
+[_ESLint_](https://eslint.org/) definiert Regeln zur statischen Codeanalyse für JavaScript und führt eine Prüfung des Quellcodes gegenüber den Regeln aus.
 
-Die Entwickler der ESLint-TypeScript-Erweiterung sprechen eine Empfehlung aus, welche Regeln aus allen verfügbaren Regeln
-den höchsten Nutzen bringen, und verwendet werden sollten (_Recommended-Config_). Das empfohlene Regelset bietet eine
-gute Zusammenstellung von Regeln und kann uneingeschränkt verwendet werden. Dabei sollte die stärkere Variante mit
-Typprüfung gewählt werden.
+Für TypeScript existiert eine ESLint-Erweiterung mit angepassten und zusätzlichen Regeln, die sich auf TypeScript basierten Quellcode beziehen ([_typescript-eslint_](https://github.com/typescript-eslint/typescript-eslint#readme)).
 
-Das vollständige Regelset aus ESLint-TypeScript beinhaltet noch weitere Regeln, die verwendet werden
-können. In _isy-eslint-typescript-rules_ ist eine Auswahl von nützlichen Regeln aus dem vollständigen Regelset
-zusammengefasst, die über das empfohlene Regelset hinausgehen. Die Regeln werden
-als [_Sharable Config_](https://eslint.org/docs/developer-guide/shareable-configs) bereitgestellt.
+Die Entwickler der ESLint-TypeScript-Erweiterung sprechen eine Empfehlung aus, welche Regeln aus allen verfügbaren Regeln den höchsten Nutzen bringen und verwendet werden sollten (_Recommended-Config_).
+Das empfohlene Regelset bietet eine gute Zusammenstellung von Regeln und kann uneingeschränkt verwendet werden.
+Dabei sollte die stärkere Variante mit Typprüfung gewählt werden.
 
-ESLint hat ab Version 8.53.0 die TypeScript-Formatierungsregeln eingestellt und empfiehlt den Umstieg auf [_ESLint-Stylistic_](https://eslint.style/). In ESLint-Stylistic sind diese Regeln bereits migriert und werden weiterhin gepflegt.
+Das vollständige Regelset aus ESLint-TypeScript beinhaltet noch weitere Regeln, die verwendet werden können.
+In _isy-eslint-typescript-rules_ ist eine Auswahl von nützlichen Regeln aus dem vollständigen Regelset zusammengefasst, die über das empfohlene Regelset hinausgehen.
+Die Regeln werden als [_Sharable Config_](https://eslint.org/docs/developer-guide/shareable-configs) bereitgestellt.
+
+ESLint hat ab Version 8.53.0 die TypeScript-Formatierungsregeln eingestellt und empfiehlt den Umstieg auf [_ESLint-Stylistic_](https://eslint.style/).
+In ESLint-Stylistic sind diese Regeln bereits migriert und werden weiterhin gepflegt.
 Dieser [_Leitfaden_](https://eslint.style/guide/migration) unterstützt bei der Migration.
 
-_isy-eslint-typescript-rules_ versteht sich als Erweiterung zu den empfohlenen TypeScript-Regeln aus ESLint und ESLint-Stylistic.
+Die _isy-eslint-typescript-rules_ verstehen sich als Erweiterung zu den empfohlenen TypeScript-Regeln aus ESLint und ESLint-Stylistic.
 
 ## Getting Started
 
@@ -75,7 +74,6 @@ Ggf. muss noch `@typescript-eslint/parser` als Parser eingestellt werden.
 {
   "parser": "@typescript-eslint/parser",
   "plugins": ["@typescript-eslint", "@stylistic/ts"],
-
   "extends": [
     "plugin:@angular-eslint/recommended",
     "plugin:@angular-eslint/template/process-inline-templates",
@@ -118,7 +116,7 @@ Die IsyFact verwendet als Basis die Regeln von [@typescript-eslint/eslint-plugin
 
 ### recommended
 
-Diese Konfiguration enthält eine Liste von Regeln, die von der Isyfact bei der Entwicklung mit TypeScript empfohlen wird.
+Diese Konfiguration enthält eine Liste von Regeln, die von der IsyFact bei der Entwicklung mit TypeScript empfohlen wird.
 
 :wrench: = fixable, 💬 = benötigt Typinformationen
 
@@ -132,17 +130,17 @@ Diese Konfiguration enthält eine Liste von Regeln, die von der Isyfact bei der 
 | [@stylistic/ts/quotes](https://eslint.style/rules/ts/quotes)                                                                                                                                              | Erzwingt die konsistente Verwendung von Single-Quoted Strings                                                                                      | :wrench: |     |
 | [@stylistic/ts/semi](https://eslint.style/rules/ts/semi)                                                                                                                                                  | Erzwingt die konsistente Verwendung von Semikolons am Ende einer Befehlszeile                                                                      | :wrench: |     |
 | [@stylistic/ts/indent](https://eslint.style/rules/ts/indent)                                                                                                                                              | Erzwingt eine konsistente Einrückung von 2 Leerzeichen                                                                                             | :wrench: |     |
-| [@stylistic/ts/space-before-function-paren](https://eslint.style/rules/ts/space-before-function-paren)                                                                                                    | Erzwingt die konsistente Vermeidung von leerzeichen nach Methodennamen                                                                             | :wrench: |     |
+| [@stylistic/ts/space-before-function-paren](https://eslint.style/rules/ts/space-before-function-paren)                                                                                                    | Erzwingt die konsistente Vermeidung von Leerzeichen nach Methodennamen                                                                             | :wrench: |     |
 | [@typescript-eslint/consistent-type-definitions](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/consistent-type-definitions.md)                       | Erlaubt Typ-Definitionen nur über Interfaces                                                                                                       | :wrench: |     |
-| [@typescript-eslint/default-param-last](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/default-param-last.md)                                         | Default Parameter müssen am Ende deklariert werden                                                                                                 |          |     |
-| [@typescript-eslint/dot-notation](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/dot-notation.md)                                                     | Erzwingt den Zugriff auf Objekte mit der Punkt-Notation (wo Sinnvoll)                                                                              | :wrench: | 💬  |
-| [@typescript-eslint/explicit-function-return-type](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/explicit-function-return-type.md)                   | Erzwingt die Angabe eines Typs für alle Methoden                                                                                                   |          |     |
-| [@typescript-eslint/explicit-member-accessibility](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md)                   | Erringt die Angabe der Sichtbarkeiten von Klassenattributen mit Ausnahme von Öffentlichen                                                          | :wrench: |     |
+| [@typescript-eslint/default-param-last](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/default-param-last.md)                                         | Stellt sicher, dass die Standardparameter die letzten sind                                                                                         |          |     |
+| [@typescript-eslint/dot-notation](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/dot-notation.md)                                                     | Erzwingt die Verwendung der Punktnotation (wo es sinnvoll ist)                                                                                     | :wrench: | 💬  |
+| [@typescript-eslint/explicit-function-return-type](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/explicit-function-return-type.md)                   | Erfordert explizite Rückgabewerte für Funktionen und Methoden in Klassen                                                                           |          |     |
+| [@typescript-eslint/explicit-member-accessibility](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/explicit-member-accessibility.md)                   | Erfordert explizite Zugriffsmodifikatoren für Klassenvariablen und -methoden                                                                       | :wrench: |     |
 | [@typescript-eslint/no-dupe-class-members](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/no-dupe-class-members.md)                                   | Verbietet Duplikate als Klassenattribute                                                                                                           |          |     |
 | [@typescript-eslint/no-loop-func](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/no-loop-func.md)                                                     | Verbietet Schleifen, die unsichere Referenzen auf Variablen enthalten                                                                              |          |     |
 | ~~[@typescript-eslint/no-loss-of-precision](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/no-loss-of-precision.md)~~                                 | Verbreitet Gleitkommazahlen, bei denen die Genauigkeit nicht mehr sichergestellt werden kann                                                       |          |     |
 | [@typescript-eslint/no-magic-numbers](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/no-magic-numbers.md)                                             | Verbindet die Verwendung von [Magic-Numbers](https://wiki.c2.com/?MagicNumber), Ausnahme sind Zahlen in Enums, Typen und readonly Klassenattribute |          |     |
-| [@typescript-eslint/no-redeclare](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/no-redeclare.md)                                                     | Verbietet die Re-deklaration von Variablen                                                                                                         |          |     |
+| [@typescript-eslint/no-redeclare](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/no-redeclare.md)                                                     | Verbietet die Redeklaration von Variablen                                                                                                          |          |     |
 | [@typescript-eslint/no-throw-literal](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/no-throw-literal.md)                                             | Verbietet das Werfen von Literalen als Exception                                                                                                   |          | 💬  |
 | [@typescript-eslint/no-unnecessary-boolean-literal-compare](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/no-unnecessary-boolean-literal-compare.md) | Verbietet unnötige Gleichheitsoperatoren bei Booleans                                                                                              | :wrench: | 💬  |
 | [@typescript-eslint/no-unnecessary-qualifier](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/no-unnecessary-qualifier.md)                             | Verbietet unnötige oder unbenutzte Namespaces oder Enums                                                                                           | :wrench: | 💬  |
@@ -150,7 +148,7 @@ Diese Konfiguration enthält eine Liste von Regeln, die von der Isyfact bei der 
 | [@typescript-eslint/no-unused-vars](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/no-unused-vars.md)                                                 | Erlaubt die Verwendung von unbenutzten Variablen                                                                                                   |          |     |
 | [@typescript-eslint/no-use-before-define](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/no-use-before-define.md)                                     | Verbietet die Verwendung von Variablen vor ihrer Deklaration                                                                                       |          |     |
 | [@typescript-eslint/no-useless-constructor](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/no-useless-constructor.md)                                 | Verbietet unbenutzte Konstruktoren                                                                                                                 |          |     |
-| [@typescript-eslint/prefer-for-of](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/prefer-for-of.md)                                                   | Erzwingt die verwendung einer for-of-Loop, falls diese sinnvoll verwendet werden kann                                                              |          |     |
+| [@typescript-eslint/prefer-for-of](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/prefer-for-of.md)                                                   | Erzwingt die Verwendung einer for-of-Loop, falls diese sinnvoll verwendet werden kann                                                              |          |     |
 | [@typescript-eslint/prefer-includes](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/prefer-includes.md)                                               | Erzwingt die Verwendung der include Methode anstelle von indexOf                                                                                   | :wrench: | 💬  |
 | [@typescript-eslint/prefer-literal-enum-member](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/prefer-literal-enum-member.md)                         | Erlaubt nur Literale als Werte für Enums                                                                                                           |          |     |
 | [@typescript-eslint/prefer-nullish-coalescing](https://github.com/typescript-eslint/typescript-eslint/blob/HEAD/packages/eslint-plugin/docs/rules/prefer-nullish-coalescing.md)                           | Erzwingt die Verwendung des Nullish-Coalescing-Operators anstelle komplexer Vergleiche                                                             |          | 💬  |

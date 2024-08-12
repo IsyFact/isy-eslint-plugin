@@ -5,7 +5,7 @@
 - ESLint-Stylistic wurde hinzugefügt
 - PeerDependencies wurden angepasst
 - Veraltete TypeScript-Formatierungsregeln wurden durch ESLint-Stylistic-Regeln ersetzt
-- Veraltete Erweiterungsregel, die nicht mehr erforderlich sind wurden gelöscht
+- Veraltete Erweiterungsregel, die nicht mehr erforderlich sind, wurden gelöscht
 - package-lock.json wurde entfernt
 - Readme wurde angepasst
 
