@@ -1,6 +1,6 @@
 {
   "name": "@isyfact/eslint-plugin",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "description": "eslint typescript rules for the IsyFact software factory",
   "author": {
     "name": "IsyFact-Team",
@@ -20,8 +20,9 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "eslint": "*",
-    "@typescript-eslint/parser": "",
-    "@typescript-eslint/eslint-plugin": ""
+    "eslint": "^9.9.0",
+    "@typescript-eslint/parser": "^8.0.1",
+    "@typescript-eslint/eslint-plugin": "^8.0.1",
+    "@stylistic/eslint-plugin-ts": "^2.6.2"
   }
 }
