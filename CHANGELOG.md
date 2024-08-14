@@ -1,13 +1,20 @@
-# 1.5.0 - 12.08.2024
+# 2.0.0 - 13.08.2024
 
 ## Features
 
-- ESLint-Stylistic wurde hinzugefügt
-- PeerDependencies wurden angepasst
-- Veraltete TypeScript-Formatierungsregeln wurden durch ESLint-Stylistic-Regeln ersetzt
-- Veraltete Erweiterungsregel, die nicht mehr erforderlich sind, wurden gelöscht
-- package-lock.json wurde entfernt
-- Readme wurde angepasst
+- Anhebung von Package Versionen 
+  * @typescript-eslint/parser@8
+  * @typescript-eslint/eslint-plugin@8 
+  * eslint@9 
+  * @stylistic/eslint-plugin-ts@2
+
+## Breaking Changes
+
+### Konfigurationen _recommended_ und _test_
+- Migration von der Regel `@typescript-eslint/no-throw-literal` auf `@typescript-eslint/only-throw-error`
+- Migration von Code-Style Regeln von `eslint` nach `@stylistic/ts`
+- Ersetzen der Deprecated Regel `@typescript-eslint/no-loss-of-precision` durch `eslint/no-loss-of-precision`
+- Ersetzen der Deprecated Regel `@typescript-eslint/prefer-ts-expect-error` durch `@typescript-eslint/ban-ts-comment`
 
 # 1.4.1 - 09.11.2023
 
