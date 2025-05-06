@@ -20,9 +20,9 @@
     "LICENSE"
   ],
   "peerDependencies": {
-    "eslint": "^9.9.0",
-    "@typescript-eslint/parser": "^8.0.1",
-    "@typescript-eslint/eslint-plugin": "^8.0.1",
-    "@stylistic/eslint-plugin-ts": "^2.6.2"
+    "eslint": "^9.26.0",
+    "@typescript-eslint/parser": "^8.32.0",
+    "@typescript-eslint/eslint-plugin": "^8.32.0",
+    "@stylistic/eslint-plugin-ts": "^3.1.0"
   }
 }

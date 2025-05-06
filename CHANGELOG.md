@@ -1,3 +1,15 @@
+# 3.0.0 - 06.05.2025
+
+## Features
+
+- Anhebung von Package Versionen 
+  * `eslint` von `^9.9.0` auf `^9.26.0`
+  * `@typescript-eslint/parser` von `^8.0.1` auf `^8.32.0`
+  * `@typescript-eslint/eslint-plugin` von `^8.0.1` auf `^8.32.0`
+
+## Breaking Changes
+- Peer-Dependency `@stylistic/eslint-plugin-ts` von `^2.6.2` auf `^3.1.0` aktualisiert
+
 # 2.0.0 - 13.08.2024
 
 ## Features
