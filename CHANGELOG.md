@@ -2,7 +2,7 @@
 
 ## Fixes
 
-- package-lock.json wurde aktualisiert
+- package.json und package-lock.json wurden aktualisiert
 
 # 3.0.0 - 06.05.2025
 
