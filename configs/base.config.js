@@ -1,0 +1,26 @@
+const tseslint = require('typescript-eslint');
+
+module.exports = [
+  { ignores: ['**/*.tsx'] },
+
+  {
+    files: ['**/*.ts'],
+    ...tseslint.configs.eslintRecommended,
+  },
+
+  ...tseslint.configs.recommendedTypeChecked.map(cfg => ({
+    ...cfg,
+    files: [...(cfg.files || []), '**/*.ts'],
+  })),
+
+  {
+    files: ['**/*.ts'],
+    languageOptions: {
+      parser: tseslint.parser,
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: __dirname,
+      },
+    },
+  },
+];

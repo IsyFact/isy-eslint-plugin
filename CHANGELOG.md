@@ -1,3 +1,34 @@
+# 4.0.0 - 08.08.2025
+
+## Features
+
+- Umstieg auf ESLint Flat Config
+- Migration zu @stylistic/eslint-plugin v5
+- Aktualisierung von package.json und package-lock.json
+- Exports überarbeitet
+- Beispielkonfigurationen für Flat Config in der README ergänzt
+
+## CI/CD
+- GitHub Actions Workflow aktualisiert:
+  - `actions/checkout@v4` und `actions/setup-node@v4`
+  - Node.js Version auf `20.x` angehoben
+
+## Breaking Changes
+
+- Es wird jetzt ausschließlich die Flat Config API verwendet
+- `@stylistic/eslint-plugin-ts` wurde entfernt, alle Regel-IDs wurden von `@stylistic/ts/...` zu `@stylistic/...` umbenannt
+- Neue Peer-Dependencies
+  ```json
+  "peerDependencies": {
+    "eslint": "^9.32.0",
+    "typescript-eslint": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@stylistic/eslint-plugin": "^5.2.2"
+  }
+  ```
+- Node.js Mindestversion: >=18.18
+
 # 3.0.1 - 07.05.2025
 
 ## Fixes
