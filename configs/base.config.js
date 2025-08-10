@@ -19,7 +19,6 @@ module.exports = [
       parser: tseslint.parser,
       parserOptions: {
         projectService: true,
-        tsconfigRootDir: __dirname,
       },
     },
   },

@@ -109,7 +109,6 @@ module.exports = (async () => {
           ],
           tsconfigRootDir: __dirname,
           sourceType: 'module',
-          createDefaultProgram: true,
         },
       },
       plugins: { '@angular-eslint': angular },
