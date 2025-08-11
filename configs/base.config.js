@@ -8,7 +8,7 @@ module.exports = [
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
-        projectService: true,
+        project: './tsconfig.json',
       },
     },
   },

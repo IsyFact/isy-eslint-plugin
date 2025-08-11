@@ -62,7 +62,12 @@ module.exports = async () => {
         '@typescript-eslint/promise-function-async': ['error'],
         '@typescript-eslint/return-await': ['error'],
         '@typescript-eslint/unbound-method': ['error', { ignoreStatic: true }],
-
+      
+        '@typescript-eslint/no-inferrable-types': 'off',
+        '@typescript-eslint/non-nullable-type-assertion-style': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/consistent-indexed-object-style': 'off',
+ 
         'default-param-last': 'off',
         'dot-notation': 'off',
         'no-dupe-class-members': 'off',
@@ -75,7 +80,8 @@ module.exports = async () => {
         'no-unused-vars': 'off',
         'no-use-before-define': 'off',
         'no-useless-constructor': 'off',
-        'space-before-function-paren': 'off'
+        'space-before-function-paren': 'off',
+
       }
     }
   ];
