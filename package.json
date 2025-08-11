@@ -1,6 +1,6 @@
 {
   "name": "@isyfact/eslint-plugin",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "description": "eslint typescript rules for the IsyFact software factory",
   "author": {
     "name": "IsyFact-Team",
@@ -9,7 +9,9 @@
   },
   "license": "Apache-2.0",
   "homepage": "http://isyfact.de",
+  "type": "commonjs",
   "main": "index.js",
+  "engines": { "node": ">=18.18" },
   "scripts": {
     "pack": "npm pack"
   },
@@ -19,10 +21,16 @@
     "*.md",
     "LICENSE"
   ],
+  "exports": {
+    ".": "./index.js",
+    "./recommended": "./configs/recommended.config.js",
+    "./test": "./configs/test.config.js"
+  },
   "peerDependencies": {
-    "eslint": "^9.26.0",
-    "@typescript-eslint/parser": "^8.32.0",
-    "@typescript-eslint/eslint-plugin": "^8.32.0",
-    "@stylistic/eslint-plugin-ts": "^3.1.0"
+    "eslint": "^9.33.0",
+    "typescript-eslint": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@stylistic/eslint-plugin": "^5.2.3"
   }
 }
