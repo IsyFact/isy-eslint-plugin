@@ -114,6 +114,8 @@ module.exports = (async () => {
       plugins: { '@angular-eslint': angular },
       rules: {
         ...angular.configs.recommended.rules,
+        '@typescript-eslint/recommended-type-checked': 'error',
+        '@typescript-eslint/stylistic-type-checked': 'error',
         // Passe Prefix/Style an das Projekt an:
         '@angular-eslint/directive-selector': [
           'error',

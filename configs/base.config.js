@@ -5,16 +5,6 @@ module.exports = [
 
   {
     files: ['**/*.ts'],
-    ...tseslint.configs.eslintRecommended,
-  },
-
-  ...tseslint.configs.recommendedTypeChecked.map(cfg => ({
-    ...cfg,
-    files: [...(cfg.files || []), '**/*.ts'],
-  })),
-
-  {
-    files: ['**/*.ts'],
     languageOptions: {
       parser: tseslint.parser,
       parserOptions: {
@@ -22,4 +12,18 @@ module.exports = [
       },
     },
   },
+
+  {
+    files: ['**/*.ts'],
+    ...tseslint.configs.eslintRecommended,
+  },
+
+  ...tseslint.configs.recommendedTypeChecked.map(cfg => ({
+    ...cfg,
+    files: [...(cfg.files || []), '**/*.ts'],
+  })),
+  ...tseslint.configs.stylisticTypeChecked.map(cfg => ({
+    ...cfg,
+    files: [...(cfg.files || []), '**/*.ts'],
+  })),
 ];
