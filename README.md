@@ -69,7 +69,7 @@ $ npm i --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-pl
 
 Die Konfiguration erfolgt dann in der `eslint.config.js` (Flat Config) anstelle einer `.eslintrc.json` und muss dann noch um das IsyFact-Plugin erweitert werden.
 Des Weiteren wurde ein zweites Profil mit ESLint-Regeln angelegt, das für Unit-Tests genutzt werden kann.
-Die Datei `test.json` beinhaltet das zweite Profil.
+Die Datei `test.config.js` beinhaltet das zweite Profil.
 Dieses Regelset ist flexibler und nicht so streng wie die Regeln für den Produktivcode.
 
 Beispiel für Angular und TypeScript mit _@isyfact/eslint-plugin_ und Flat Config:
