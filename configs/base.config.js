@@ -22,8 +22,4 @@ module.exports = [
     ...cfg,
     files: [...(cfg.files || []), '**/*.ts'],
   })),
-  ...tseslint.configs.stylisticTypeChecked.map(cfg => ({
-    ...cfg,
-    files: [...(cfg.files || []), '**/*.ts'],
-  })),
 ];
