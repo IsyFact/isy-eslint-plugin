@@ -18,11 +18,7 @@ Das vollständige Regelset aus ESLint-TypeScript beinhaltet noch weitere Regeln,
 In _isy-eslint-typescript-rules_ ist eine Auswahl von nützlichen Regeln aus dem vollständigen Regelset zusammengefasst, die über das empfohlene Regelset hinausgehen.
 Die Regeln werden als [_Sharable Config_](https://eslint.org/docs/developer-guide/shareable-configs) bereitgestellt.
 
-ESLint hat ab Version 8.53.0 die TypeScript-Formatierungsregeln eingestellt und empfiehlt den Umstieg auf [_ESLint-Stylistic_](https://eslint.style/).
-In ESLint-Stylistic sind diese Regeln bereits migriert und werden weiterhin gepflegt.
-Dieser [_Leitfaden_](https://eslint.style/guide/migration) unterstützt bei der Migration.
-
-Die _isy-eslint-typescript-rules_ verstehen sich als Erweiterung zu den empfohlenen TypeScript-Regeln aus ESLint und ESLint-Stylistic.
+Die _isy-eslint-typescript-rules_ verstehen sich als Erweiterung zu den empfohlenen TypeScript-Regeln aus ESLint.
 
 ## Getting Started
 
@@ -31,7 +27,7 @@ Die _isy-eslint-typescript-rules_ verstehen sich als Erweiterung zu den empfohle
 Für die Verwendung des Plugins müssen zunächst folgende Dependencies installiert werden
 
 ```bash
-$ npm i --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @stylistic/eslint-plugin @isyfact/eslint-plugin
+$ npm i --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @isyfact/eslint-plugin
 ```
 
 Als minimale Konfiguration der `eslint.config.js` kann folgendes Beispiel verwendet werden.
@@ -64,7 +60,7 @@ Wenn eine bestimmte Angular-Hauptversion verwendet wird, sollte die schematics p
 Anschließend müssen noch folgende Pakete installiert werden.
 
 ```bash
-$ npm i --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @stylistic/eslint-plugin @angular-eslint/eslint-plugin @angular-eslint/eslint-plugin-template @angular-eslint/template-parser @isyfact/eslint-plugin
+$ npm i --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @angular-eslint/eslint-plugin @angular-eslint/eslint-plugin-template @angular-eslint/template-parser @isyfact/eslint-plugin
 ```
 
 Die Konfiguration erfolgt dann in der `eslint.config.js` (Flat Config) anstelle einer `.eslintrc.json` und muss dann noch um das IsyFact-Plugin erweitert werden.
@@ -159,9 +155,6 @@ module.exports = (async () => {
 Installation von ESLint-TypeScript:
 https://www.npmjs.com/package/@typescript-eslint/eslint-plugin
 
-Installation von ESLint-TypeScript-Formatierungsregeln:
-https://www.npmjs.com/package/@stylistic/eslint-plugin
-
 Getting Started mit ESLint-TypeScript:
 https://github.com/typescript-eslint/typescript-eslint/blob/main/README.md
 
@@ -180,15 +173,6 @@ Diese Konfiguration enthält eine Liste von Regeln, die von der IsyFact bei der 
 
 | Name                                                                                                                                   | Beschreibung                                                                                                                                       | :wrench: | 💬 |
 |----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|----------|----|
-| [@stylistic/brace-style](https://eslint.style/rules/brace-style)                                                  | Erzwingt einen konsistenten Klammerstil für Blöcke                                                                                                 | :wrench: |    |
-| [@stylistic/comma-dangle](https://eslint.style/rules/comma-dangle)                                                               | Verbietet ein Komma am Ende einer Liste                                                                                                            | :wrench: |    |
-| [@stylistic/comma-spacing](https://eslint.style/rules/comma-spacing)                                                              | Erzwingt konsistente Leerzeichen vor und nach Kommas                                                                                               | :wrench: |
-| [@stylistic/function-call-spacing](https://eslint.style/rules/function-call-spacing)                                             | Verbietet Leerzeichen zwischen Methodenname und Ausführungsklammern                                                                                | :wrench: |    |
-| [@stylistic/keyword-spacing](https://eslint.style/rules/keyword-spacing)                                                         | Erzwingt konsistente Leerzeichen vor und nach einem Keyword                                                                                        | :wrench: |    |
-| [@stylistic/quotes](https://eslint.style/rules/quotes)                                                                           | Erzwingt die konsistente Verwendung von Single-Quoted Strings                                                                                      | :wrench: |    |
-| [@stylistic/semi](https://eslint.style/rules/semi)                                                                               | Erzwingt die konsistente Verwendung von Semikolons am Ende einer Befehlszeile                                                                      | :wrench: |    |
-| [@stylistic/indent](https://eslint.style/rules/indent)                                                                           | Erzwingt eine konsistente Einrückung von 2 Leerzeichen                                                                                             | :wrench: |    |
-| [@stylistic/space-before-function-paren](https://eslint.style/rules/space-before-function-paren)                                 | Erzwingt die konsistente Vermeidung von Leerzeichen nach Methodennamen                                                                             | :wrench: |    |
 | [@typescript-eslint/ban-ts-comment](https://typescript-eslint.io/rules/ban-ts-comment)                                                 | Verbietet den Einsatz von @ts-<directive> Kommentaren, um den Compiler zu umgehen                                                                   |          |    |
 | [@typescript-eslint/only-throw-error](https://typescript-eslint.io/rules/only-throw-error)                                             | Verbiete das Werfen von Nicht-Error-Werten als Exeption                                                                                                  |          |    |
 | [@typescript-eslint/consistent-type-definitions](https://typescript-eslint.io/rules/consistent-type-definitions)                       | Erlaubt Typ-Definitionen nur über Interfaces                                                                                                       | :wrench: |    |
