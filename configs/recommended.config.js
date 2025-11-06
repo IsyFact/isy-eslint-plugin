@@ -2,27 +2,15 @@ const base = require('./base.config.js');
 const tseslint = require('@typescript-eslint/eslint-plugin');
 
 module.exports = async () => {
-  const stylistic = (await import('@stylistic/eslint-plugin')).default;
-
   return [
     ...base,
     {
       name: 'isy-eslint/recommended',
       files: ['**/*.ts'],
       plugins: {
-        '@stylistic': stylistic,
         '@typescript-eslint': tseslint,
       },
         rules: {
-        '@stylistic/brace-style': ['error'],
-        '@stylistic/comma-dangle': ['error'],
-        '@stylistic/comma-spacing': ['error'],
-        '@stylistic/function-call-spacing': ['error'],
-        '@stylistic/keyword-spacing': ['error'],
-        '@stylistic/quotes': ['error', 'single'],
-        '@stylistic/semi': ['error', 'always'],
-        '@stylistic/indent': ['error', 2, { SwitchCase: 1 }],
-
         '@typescript-eslint/ban-ts-comment': 'error',
         '@typescript-eslint/only-throw-error': ['error'],
         '@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
