@@ -2,7 +2,7 @@
 
 Das Paket _@isyfact/eslint-plugin_ enthält eine Liste von empfohlenen Regeln, die bei der Entwicklung von TypeScript-Projekten in der IsyFact zu beachten sind.
 
-**Hinweis (Flat Config):** Seit ESLint v9 (bzw. v8.53+ vorbereitet) wird die **Flat Config** verwendet. Statt `.eslintrc.*` nutzt man nun **`eslint.config.js`** (oder `.cjs`).
+**Hinweis (Flat Config):** Mit ESLint v10 wird ausschließlich die **Flat Config** unterstützt. Statt `.eslintrc.*` nutzt man **`eslint.config.js`** (oder `.cjs`).
 Die Beispiele in dieser Anleitung sind entsprechend angepasst.
 
 ## Steckbrief
@@ -27,7 +27,7 @@ Die _isy-eslint-typescript-rules_ verstehen sich als Erweiterung zu den empfohle
 Für die Verwendung des Plugins müssen zunächst folgende Dependencies installiert werden
 
 ```bash
-$ npm i --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @isyfact/eslint-plugin
+$ npm i --save-dev eslint@^10.8.1 typescript-eslint@^8.67.0 @isyfact/eslint-plugin
 ```
 
 Als minimale Konfiguration der `eslint.config.js` kann folgendes Beispiel verwendet werden.
@@ -42,6 +42,16 @@ module.exports = (async () => {
     { ignores: ['**/node_modules/**'] },
 
     ...recommended,
+
+    {
+      files: ['**/*.ts'],
+      languageOptions: {
+        parserOptions: {
+          project: ['./tsconfig.json'],
+          tsconfigRootDir: __dirname,
+        },
+      },
+    },
   ];
 })();
 ```
@@ -49,7 +59,7 @@ module.exports = (async () => {
 ### Verwendung in Angular Projekten
 
 Angular hat einen [Generator](https://github.com/angular-eslint/angular-eslint), welcher die Konfiguration von EsLint in Angular Projekten erleichtert.
-Der Generator wir mit folgendem Befehl ausgeführt:
+Der Generator wird mit folgendem Befehl ausgeführt:
 
 ```bash
 $ ng add @angular-eslint/schematics
@@ -60,10 +70,11 @@ Wenn eine bestimmte Angular-Hauptversion verwendet wird, sollte die schematics p
 Anschließend müssen noch folgende Pakete installiert werden.
 
 ```bash
-$ npm i --save-dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin @angular-eslint/eslint-plugin @angular-eslint/eslint-plugin-template @angular-eslint/template-parser @isyfact/eslint-plugin
+$ npm i --save-dev eslint@^10.8.1 typescript-eslint@^8.67.0 @angular-eslint/eslint-plugin @angular-eslint/eslint-plugin-template @angular-eslint/template-parser @isyfact/eslint-plugin
 ```
 
 Die Konfiguration erfolgt dann in der `eslint.config.js` (Flat Config) anstelle einer `.eslintrc.json` und muss dann noch um das IsyFact-Plugin erweitert werden.
+Die Pfade zu den verwendeten TypeScript-Konfigurationen müssen im Consumer über `parserOptions.project` angegeben werden.
 Des Weiteren wurde ein zweites Profil mit ESLint-Regeln angelegt, das für Unit-Tests genutzt werden kann.
 Die Datei `test.config.js` beinhaltet das zweite Profil.
 Dieses Regelset ist flexibler und nicht so streng wie die Regeln für den Produktivcode.
@@ -71,8 +82,7 @@ Dieses Regelset ist flexibler und nicht so streng wie die Regeln für den Produk
 Beispiel für Angular und TypeScript mit _@isyfact/eslint-plugin_ und Flat Config:
 
 ```js
-// Basis-Parser und Angular-spezifische Plugins
-const tsParser = require('@typescript-eslint/parser');
+// Angular-spezifische Plugins
 const angular = require('@angular-eslint/eslint-plugin');
 const angularTemplate = require('@angular-eslint/eslint-plugin-template');
 const angularTemplateParser = require('@angular-eslint/template-parser');
@@ -94,7 +104,6 @@ module.exports = (async () => {
     {
       files: ['**/*.ts'],
       languageOptions: {
-        parser: tsParser,
         parserOptions: {
           // Passe diese Liste an die tsconfig-Pfade an
           project: [
@@ -104,7 +113,6 @@ module.exports = (async () => {
             'libs/*/tsconfig.spec.json',
           ],
           tsconfigRootDir: __dirname,
-          sourceType: 'module',
         },
       },
       plugins: { '@angular-eslint': angular },
@@ -129,8 +137,6 @@ module.exports = (async () => {
       plugins: { '@angular-eslint/template': angularTemplate },
       rules: {
         ...angularTemplate.configs.recommended.rules,
-        // TS-spezifische Regeln im HTML-Kontext deaktivieren
-        '@typescript-eslint/only-throw-error': 'off',
       },
     },
 
@@ -153,7 +159,7 @@ module.exports = (async () => {
 ### Weiterführende Anleitungen zur Installation:
 
 Installation von ESLint-TypeScript:
-https://www.npmjs.com/package/@typescript-eslint/eslint-plugin
+https://www.npmjs.com/package/typescript-eslint
 
 Getting Started mit ESLint-TypeScript:
 https://github.com/typescript-eslint/typescript-eslint/blob/main/README.md
@@ -163,7 +169,7 @@ https://github.com/angular-eslint/angular-eslint
 
 ## Konfiguration des @isyfact/eslint-plugin
 
-Die IsyFact verwendet als Basis die Regeln von [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) und leitet dann unterschiedliche Konfigurationen daraus ab.
+Die IsyFact verwendet als Basis die typgeprüfte `recommendedTypeChecked`-Konfiguration von [typescript-eslint](https://www.npmjs.com/package/typescript-eslint) und leitet dann unterschiedliche Konfigurationen daraus ab.
 
 ### recommended
 
@@ -174,7 +180,7 @@ Diese Konfiguration enthält eine Liste von Regeln, die von der IsyFact bei der 
 | Name                                                                                                                                   | Beschreibung                                                                                                                                       | :wrench: | 💬 |
 |----------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------|----------|----|
 | [@typescript-eslint/ban-ts-comment](https://typescript-eslint.io/rules/ban-ts-comment)                                                 | Verbietet den Einsatz von @ts-<directive> Kommentaren, um den Compiler zu umgehen                                                                   |          |    |
-| [@typescript-eslint/only-throw-error](https://typescript-eslint.io/rules/only-throw-error)                                             | Verbiete das Werfen von Nicht-Error-Werten als Exeption                                                                                                  |          |    |
+| [@typescript-eslint/only-throw-error](https://typescript-eslint.io/rules/only-throw-error)                                             | Verbietet das Werfen von Nicht-Error-Werten als Exception                                                                                                  |          |    |
 | [@typescript-eslint/consistent-type-definitions](https://typescript-eslint.io/rules/consistent-type-definitions)                       | Erlaubt Typ-Definitionen nur über Interfaces                                                                                                       | :wrench: |    |
 | [@typescript-eslint/default-param-last](https://typescript-eslint.io/rules/default-param-last)                                         | Default Parameter müssen am Ende deklariert werden                                                                                                 |          |    |
 | [@typescript-eslint/dot-notation](https://typescript-eslint.io/rules/dot-notation)                                                     | Erzwingt die Verwendung der Punktnotation (wo es sinnvoll ist)                                                                                     | :wrench: | 💬 |
@@ -182,13 +188,13 @@ Diese Konfiguration enthält eine Liste von Regeln, die von der IsyFact bei der 
 | [@typescript-eslint/explicit-member-accessibility](https://typescript-eslint.io/rules/explicit-member-accessibility)                   | Erfordert explizite Zugriffsmodifikatoren für Klassenvariablen und -methoden                                                                       | :wrench: |    |
 | [@typescript-eslint/no-dupe-class-members](https://typescript-eslint.io/rules/no-dupe-class-members)                                   | Verbietet Duplikate als Klassenattribute                                                                                                           |          |    |
 | [@typescript-eslint/no-loop-func](https://typescript-eslint.io/rules/no-loop-func)                                                     | Verbietet Schleifen, die unsichere Referenzen auf Variablen enthalten                                                                              |          |    |
-| [@typescript-eslint/no-magic-numbers](https://typescript-eslint.io/rules/no-magic-numbers)                                             | Verbindet die Verwendung von [Magic-Numbers](https://wiki.c2.com/?MagicNumber); Ausnahmen sind Zahlen in Enums, Typen und readonly Klassenattribute |          |    |
+| [@typescript-eslint/no-magic-numbers](https://typescript-eslint.io/rules/no-magic-numbers)                                             | Verbietet die Verwendung von [Magic-Numbers](https://wiki.c2.com/?MagicNumber); Ausnahmen sind Zahlen in Enums, Typen und readonly Klassenattribute |          |    |
 | [@typescript-eslint/no-redeclare](https://typescript-eslint.io/rules/no-redeclare)                                                     | Verbietet die Redeklaration von Variablen                                                                                                          |          |    |
 | [@typescript-eslint/no-unnecessary-boolean-literal-compare](https://typescript-eslint.io/rules/no-unnecessary-boolean-literal-compare) | Verbietet unnötige Gleichheitsoperatoren bei Booleans                                                                                              | :wrench: | 💬 |
 | [@typescript-eslint/no-unnecessary-qualifier](https://typescript-eslint.io/rules/no-unnecessary-qualifier)                             | Verbietet unnötige oder unbenutzte Namespaces oder Enums                                                                                           | :wrench: | 💬 |
 | [@typescript-eslint/no-unnecessary-type-arguments](https://typescript-eslint.io/rules/no-unnecessary-type-arguments)                   | Verbietet die Verwendung des default Types bei der Initialisierung                                                                                 | :wrench: | 💬 |
 | [@typescript-eslint/no-unused-expressions](https://typescript-eslint.io/rules/no-unused-expressions)                                   | Verbietet ungenutzte Ausdrücke                                                                                                                     |          |    |
-| [@typescript-eslint/no-unused-vars](https://typescript-eslint.io/rules/no-unused-vars)                                                 | Verbietet die Verwendung von unbenutzten Variablen                                                                                                   |          |    |
+| [@typescript-eslint/no-unused-vars](https://typescript-eslint.io/rules/no-unused-vars)                                                 | **Deaktiviert:** Verbietet die Verwendung von unbenutzten Variablen                                                                                                   |          |    |
 | [@typescript-eslint/no-use-before-define](https://typescript-eslint.io/rules/no-use-before-define)                                     | Verbietet die Verwendung von Variablen vor ihrer Deklaration                                                                                       |          |    |
 | [@typescript-eslint/no-useless-constructor](https://typescript-eslint.io/rules/no-useless-constructor)                                 | Verbietet unbenutzte Konstruktoren                                                                                                                 |          |    |
 | [@typescript-eslint/prefer-for-of](https://typescript-eslint.io/rules/prefer-for-of)                                                   | Erzwingt die Verwendung einer for-of-Loop, falls diese sinnvoll verwendet werden kann                                                              |          |    |
